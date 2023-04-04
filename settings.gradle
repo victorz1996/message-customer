@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        //mavenLocal()
+        //maven { url '...' }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'message-consumer--coverage&#61;jacoco'
+
+include ':app-service'
+include ':model'
+include ':usecase'
+project(':app-service').projectDir = file('./applications/app-service')
+project(':model').projectDir = file('./domain/model')
+project(':usecase').projectDir = file('./domain/usecase')
+include ':message-listener'
+project(':message-listener').projectDir = file('./infrastructure/entry-points/message-listener')
+include ':mq-rabbit'
+project(':mq-rabbit').projectDir = file('./infrastructure/driven-adapters/mq-rabbit')
